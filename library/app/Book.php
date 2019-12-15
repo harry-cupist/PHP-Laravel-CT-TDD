@@ -11,8 +11,7 @@ class Book extends Model
 
     public function path()
     {
-        return '/books/' . $this->id . '-' . Str::slug($this->title);
-
-        // /books/1-endgame
+        return '/books/' . $this->id;
     }
 }
+
