@@ -15,4 +15,5 @@ class Author extends Model
     {
         $this->attributes['dob'] = Carbon::parse($dob);
     }
+
 }
