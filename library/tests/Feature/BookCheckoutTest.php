@@ -90,6 +90,8 @@ class BookCheckoutTest extends TestCase
     /** @test */
     public function a_404_is_thrown_if_a_book_is_not_checked_out_first()
     {
+        $this->withoutExceptionHandling();
+
         $book = factory(Book::class)->create();
         $user = factory(User::class)->create();
 

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Exception;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
@@ -30,7 +31,7 @@ class Book extends Model
             ->first();
 
         if (is_null($reservation)) {
-            throw new \Exception();
+            throw new Exception();
         }
 
         $reservation->update([

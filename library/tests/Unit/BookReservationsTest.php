@@ -5,6 +5,7 @@ namespace Tests\Unit;
 use App\Book;
 use App\Reservation;
 use App\User;
+use Exception;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -45,7 +46,7 @@ class BookReservationsTest extends TestCase
     /** @test */
     public function if_not_checked_out_exception_is_thrown()
     {
-        $this->expectException(\Exception::class);
+        $this->expectException(Exception::class);
         $book = factory(Book::class)->create();
         $user = factory(User::class)->create();
 
@@ -75,4 +76,3 @@ class BookReservationsTest extends TestCase
         $this->assertEquals(now(), Reservation::find(2)->checked_in_at);
     }
 }
-

@@ -29,7 +29,7 @@ class BookManagementTest extends TestCase
     {
         // $this->withoutExceptionHandling();
         $response = $this->post('/books', [
-            'title' => '',
+            'title'  => '',
             'author' => 'harry'
         ]);
 
@@ -54,7 +54,7 @@ class BookManagementTest extends TestCase
         $book = Book::first();
 
         $response = $this->patch($book->path(), [
-            'title' => 'New Title',
+            'title'     => 'New Title',
             'author_id' => 'victor',
         ]);
 
@@ -83,11 +83,11 @@ class BookManagementTest extends TestCase
         $this->withoutExceptionHandling();
 
         $this->post('/books', [
-            'title' => 'cool book title',
+            'title'     => 'cool book title',
             'author_id' => 'harry'
         ]);
 
-        $book = Book::first();
+        $book   = Book::first();
         $author = Author::first();
 
         $this->assertEquals($author->id, $book->author_id);
@@ -97,7 +97,7 @@ class BookManagementTest extends TestCase
     private function data()
     {
         return [
-            'title'  => 'cool book title',
+            'title'     => 'cool book title',
             'author_id' => 'harry'
         ];
     }
